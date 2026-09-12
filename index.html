@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DAAT. — Sistema de vendas, clientes e agenda pro seu negócio</title>
+<meta name="description" content="Vendas, clientes e agenda, tudo num sistema só. Teste grátis por 7 dias, sem cartão de crédito.">
+<style>
+  @font-face { font-family: 'Archivo Black'; src: url('fonts/archivo-black.woff2') format('woff2'); font-weight: 900; font-style: normal; }
+  @font-face { font-family: 'IBM Plex Mono'; src: url('fonts/ibm-plex-mono-400.woff2') format('woff2'); font-weight: 400; font-style: normal; }
+  @font-face { font-family: 'IBM Plex Mono'; src: url('fonts/ibm-plex-mono-500.woff2') format('woff2'); font-weight: 500; font-style: normal; }
+  @font-face { font-family: 'IBM Plex Mono'; src: url('fonts/ibm-plex-mono-700.woff2') format('woff2'); font-weight: 700; font-style: normal; }
+  @font-face { font-family: 'Inter'; src: url('fonts/inter-400.woff2') format('woff2'); font-weight: 400; font-style: normal; }
+  @font-face { font-family: 'Inter'; src: url('fonts/inter-500.woff2') format('woff2'); font-weight: 500; font-style: normal; }
+  @font-face { font-family: 'Inter'; src: url('fonts/inter-600.woff2') format('woff2'); font-weight: 600; font-style: normal; }
+  @font-face { font-family: 'Inter'; src: url('fonts/inter-700.woff2') format('woff2'); font-weight: 700; font-style: normal; }
+
+  :root {
+    --bg: #f3ecdd; --bg2: #fffdf6; --black: #14120c; --cream: #f3ecdd;
+    --yellow: #f5c400; --gray: #8d8672; --text2: #5c5748;
+    --border: rgba(20,18,12,0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg); color: var(--black);
+    background-image:
+      linear-gradient(rgba(20,18,12,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(20,18,12,0.04) 1px, transparent 1px);
+    background-size: 24px 24px;
+    min-height: 100vh;
+  }
+
+  header { max-width: 1000px; margin: 0 auto; padding: 2rem 1.5rem 0 1.5rem; }
+  .logo { font-family: 'Archivo Black', sans-serif; font-size: 26px; }
+  .logo .dot { color: var(--yellow); }
+
+  main { max-width: 1000px; margin: 0 auto; padding: 3rem 1.5rem 5rem 1.5rem; }
+
+  .hero { text-align: center; max-width: 720px; margin: 2rem auto 3.5rem auto; }
+  .eyebrow { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; background: var(--yellow); color: var(--black); padding: 5px 12px; border-radius: 999px; margin-bottom: 1.5rem; }
+  h1 { font-family: 'Archivo Black', sans-serif; font-size: 38px; line-height: 1.15; margin-bottom: 1.25rem; }
+  h1 .hl { background: var(--yellow); padding: 0 6px; }
+  .subhead { font-size: 16px; line-height: 1.6; color: var(--text2); margin-bottom: 2.25rem; }
+
+  .cta-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--black); color: var(--yellow); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; padding: 16px 34px; border-radius: 999px; text-decoration: none; transition: transform .15s ease; box-shadow: 0 8px 24px -8px rgba(20,18,12,.35); }
+  .cta-btn:hover { transform: translateY(-2px); }
+  .cta-note { display: block; margin-top: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--gray); }
+
+  .bullets { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin: 2.5rem auto 0 auto; max-width: 700px; }
+  .bullets span { display: flex; align-items: center; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--text2); }
+  .bullets span::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--yellow); border: 1.5px solid var(--black); flex-shrink: 0; }
+
+  .price-card { max-width: 380px; margin: 3.5rem auto 0 auto; background: var(--bg2); border: 2px solid var(--black); border-radius: 18px; padding: 2rem; text-align: center; }
+  .price-card .plabel { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gray); margin-bottom: 6px; }
+  .price-card .pvalue { font-family: 'Archivo Black', sans-serif; font-size: 42px; }
+  .price-card .pvalue .unit { font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 400; color: var(--gray); }
+  .price-card .ptrial { display: inline-block; margin-top: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 700; background: var(--black); color: var(--yellow); padding: 4px 12px; border-radius: 999px; }
+
+  footer { text-align: center; padding: 2rem 1.5rem 3rem 1.5rem; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--gray); }
+  footer a { color: var(--black); font-weight: 600; text-decoration: none; }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 28px; }
+    .subhead { font-size: 14.5px; }
+    .cta-btn { width: 100%; justify-content: center; padding: 16px 20px; }
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">DAAT<span class="dot">.</span></div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="eyebrow">Sistema DAAT.</div>
+      <h1>Vendas, clientes e agenda — tudo num sistema <span class="hl">só</span>.</h1>
+      <p class="subhead">O DAAT. organiza o dia a dia do seu negócio: cadastro de clientes, controle de vendas e estoque, agenda de retorno e um painel com os números que realmente importam — sem a complicação (nem o preço) das plataformas gigantes.</p>
+
+      <a href="https://daattech.github.io/SaaS.Daat/" class="cta-btn">Criar minha conta grátis →</a>
+      <span class="cta-note">7 dias grátis · sem cartão de crédito · cancele quando quiser</span>
+
+      <div class="bullets">
+        <span>CRM com agendamento</span>
+        <span>Controle de vendas e estoque</span>
+        <span>Dashboard com insights automáticos</span>
+        <span>Exportação pra Excel a qualquer hora</span>
+      </div>
+    </div>
+
+    <div class="price-card">
+      <div class="plabel">Mensal, sem fidelidade</div>
+      <div class="pvalue">R$ 59,90<span class="unit"> /mês</span></div>
+      <div class="ptrial">7 dias grátis pra testar</div>
+    </div>
+  </main>
+
+  <footer>
+    Instagram <a href="https://instagram.com/daat.tech" target="_blank">@daat.tech</a> · E-mail <a href="mailto:daat.comercial@gmail.com">daat.comercial@gmail.com</a>
+  </footer>
+
+</body>
+</html>
